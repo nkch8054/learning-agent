@@ -28,28 +28,61 @@ Nexus sits silently in your IDE or design tool. It observes your patterns and su
 This project is organized as a **Monorepo** to handle both the user-facing extensions and the centralized AI "Brain."
 
 ```text
-nexus-monorepo/
 ├── apps/
-│   ├── vscode-extension/      # Frontend: The "Observer" (TypeScript)
+│   ├── vscode-extension/          # Frontend: VS Code "Observer"
+│   │   ├── .vscode/               # Extension launch configs
+│   │   ├── media/                 # Icons, CSS, and JS for Webview tutorials
+│   │   │   └── .gitkeep
 │   │   ├── src/
-│   │   │   ├── extension.ts   # Main activation & event listeners
-│   │   │   ├── providers/     # UI (Hovers, Code Actions, Webviews)
-│   │   │   └── services/      # API Bridge to the Brain
-│   │   └── package.json       # VS Code Manifest & Activation Events
+│   │   │   ├── extension.ts       # Main entry point & Activation logic
+│   │   │   ├── providers/         # UI Interaction Layer
+│   │   │   │   ├── hoverProvider.ts   # Shows "Micro-learning" cards on hover
+│   │   │   │   ├── codeAction.ts      # "Quick Fix" lightbulb suggestions
+│   │   │   │   └── webviewPanel.ts    # Rich, interactive sandbox UI
+│   │   │   ├── services/          # Business Logic
+│   │   │   │   ├── api.ts             # Axios/Fetch wrapper for API-Server
+│   │   │   │   └── contextManager.ts  # Extracts code snippets and user intent
+│   │   │   └── utils/             # Helper functions (Debouncing, Loggers)
+│   │   ├── package.json           # Extension Manifest & Activation Events
+│   │   ├── tsconfig.json          # TypeScript configuration
+│   │   └── vsc-extension-quickstart.md
 │   │
-│   └── api-server/            # Backend: The "Brain" (Python/FastAPI)
+│   └── api-server/                # Backend: The "Brain" (FastAPI)
 │       ├── app/
-│       │   ├── main.py        # Entry point
-│       │   ├── core/          # Agent logic & RAG Engine
-│       │   ├── db/            # Vector Store (Pinecone) & User Progress
-│       │   └── worker/        # Daily scrapers for tech changelogs
-│       └── requirements.txt
+│       │   ├── main.py            # FastAPI entry point
+│       │   ├── api/               # API Routes & Versioning
+│       │   │   └── routes/
+│       │   │       ├── analyze.py     # Code analysis & suggestion logic
+│       │   │       ├── feedback.py    # Tracks user learning metrics
+│       │   │       └── .gitkeep
+│       │   ├── core/              # AI & Agentic Logic
+│       │   │   ├── agent.py           # LangGraph orchestration
+│       │   │   ├── rag_engine.py      # Vector search & retrieval
+│       │   │   └── prompt_templates.py# System prompts for "Tutor Mode"
+│       │   ├── db/                # Persistence Layer
+│       │   │   ├── vector_store.py    # Pinecone / Qdrant connection
+│       │   │   ├── models.py          # PostgreSQL schemas (User progress)
+│       │   │   └── migrations/        # Database version control
+│       │   │       └── .gitkeep
+│       │   └── worker/            # Background Tasks
+│       │       ├── scraper.py         # Daily tech documentation crawler
+│       │       └── .gitkeep
+│       ├── .env                   # API Keys (OpenAI, Anthropic, etc.)
+│       ├── Dockerfile             # Containerization for backend
+│       └── requirements.txt       # Python dependencies
 │
 ├── packages/
-│   └── shared/                # Shared TypeScript/JSON schemas for lessons
+│   └── shared/                    # Shared Types & Constants
+│       ├── index.ts               # Shared TypeScript interfaces
+│       └── constants.json         # Shared config across Extension & API
 │
-├── scripts/                   # Data ingestion pipelines
-└── docker-compose.yml         # Local development environment
+├── scripts/                       # DevOps & Data Scripts
+│   ├── ingest_docs.py             # Manually push docs to Vector DB
+│   └── .gitkeep
+│
+├── .gitignore                     # Standard ignores (node_modules, .env)
+├── docker-compose.yml             # Orchestrates API, DB, and Vector Store
+└── README.md                      # Project documentation
 ```
 
 ---
