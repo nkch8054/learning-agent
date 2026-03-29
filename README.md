@@ -1,5 +1,3 @@
-***
-
 # Nexus: The Just-In-Time AI Learning Agent 🧠🚀
 
 > **"The half-life of a skill used to be 10 years. Now, it’s 18 months."** 
@@ -30,9 +28,7 @@ This project is organized as a **Monorepo** to handle both the user-facing exten
 ```text
 ├── apps/
 │   ├── vscode-extension/          # Frontend: VS Code "Observer"
-│   │   ├── .vscode/               # Extension launch configs
 │   │   ├── media/                 # Icons, CSS, and JS for Webview tutorials
-│   │   │   └── .gitkeep
 │   │   ├── src/
 │   │   │   ├── extension.ts       # Main entry point & Activation logic
 │   │   │   ├── providers/         # UI Interaction Layer
@@ -54,19 +50,16 @@ This project is organized as a **Monorepo** to handle both the user-facing exten
 │       │   │   └── routes/
 │       │   │       ├── analyze.py     # Code analysis & suggestion logic
 │       │   │       ├── feedback.py    # Tracks user learning metrics
-│       │   │       └── .gitkeep
-│       │   ├── core/              # AI & Agentic Logic
+│       │   ├── core/                  # AI & Agentic Logic
 │       │   │   ├── agent.py           # LangGraph orchestration
 │       │   │   ├── rag_engine.py      # Vector search & retrieval
 │       │   │   └── prompt_templates.py# System prompts for "Tutor Mode"
-│       │   ├── db/                # Persistence Layer
+│       │   ├── db/                    # Persistence Layer
 │       │   │   ├── vector_store.py    # Pinecone / Qdrant connection
 │       │   │   ├── models.py          # PostgreSQL schemas (User progress)
 │       │   │   └── migrations/        # Database version control
-│       │   │       └── .gitkeep
-│       │   └── worker/            # Background Tasks
+│       │   └── worker/                # Background Tasks
 │       │       ├── scraper.py         # Daily tech documentation crawler
-│       │       └── .gitkeep
 │       ├── .env                   # API Keys (OpenAI, Anthropic, etc.)
 │       ├── Dockerfile             # Containerization for backend
 │       └── requirements.txt       # Python dependencies
@@ -78,7 +71,6 @@ This project is organized as a **Monorepo** to handle both the user-facing exten
 │
 ├── scripts/                       # DevOps & Data Scripts
 │   ├── ingest_docs.py             # Manually push docs to Vector DB
-│   └── .gitkeep
 │
 ├── .gitignore                     # Standard ignores (node_modules, .env)
 ├── docker-compose.yml             # Orchestrates API, DB, and Vector Store
