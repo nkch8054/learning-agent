@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import analyze
+import chromadb
 
 app = FastAPI(title="Nexus AI Learning Agent")
 
@@ -17,6 +18,7 @@ app.include_router(analyze.router)
 
 @app.get("/")
 async def root():
+    
     return {
         "status": "online",
         "agent": "Nexus AI Learning Agent",

@@ -1,16 +1,17 @@
 import asyncio
-from langchain_community.document_loaders import RecursiveUrlLoader, SitemapLoader
+from langchain_community.document_loaders import RecursiveUrlLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from app.db.vector_store import save_to_db
 from bs4 import BeautifulSoup as Soup
 
 # Config for the 5 libraries
 DOCS_SOURCES = {
-    "reactjs": "https://react.dev/reference/react",
-    "nodejs": "https://nodejs.org/api/",
-    "typescript": "https://www.typescriptlang.org/docs/",
-    "golang": "https://pkg.go.dev/std",
-    "java_spring": "https://docs.spring.io/spring-boot/index.html" 
+    # "reactjs": "https://react.dev/reference/react",
+    # "nodejs": "https://nodejs.org/api/",
+    # "typescript": "https://www.typescriptlang.org/docs/",
+    # "golang": "https://pkg.go.dev/std",
+    # "java_spring": "https://docs.spring.io/spring-boot/index.html"
+    "angular": "https://angular.dev/"
 }
 
 def clean_html(html_content):

@@ -54,6 +54,10 @@ Run the scraper to crawl documentation sites and save them into the `chroma_db_d
 # Run from the api-server root directory
 export PYTHONPATH=$PYTHONPATH:.
 python app/worker/scraper.py
+
+Or 
+
+python -m app.worker.scraper
 ```
 
 ### Step 2: Start the API Server

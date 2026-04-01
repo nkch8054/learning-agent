@@ -2,29 +2,26 @@
 import * as vscode from 'vscode';
 import { getActiveCodeSnippet } from './services/contextManager';
 import { checkCodeModernity } from './services/api';
+import {  detectLanguage } from './utils/lang-detect';
 
 export function activate(context: vscode.ExtensionContext) {
-    let timeout: NodeJS.Timeout | undefined;
+    let 
+    timeout: NodeJS.Timeout | undefined;
 
     // Listen for text changes
     const onType = vscode.workspace.onDidChangeTextDocument(async (event) => {
         if (timeout) clearTimeout(timeout);
 
-        vscode.window.showInformationMessage('Hello World from hello-world!');
-
-        console.log("Text changed, scheduling analysis...");
-
         // Debounce: Wait 2 seconds after typing stops to analyze
         timeout = setTimeout(async () => {
             const code = getActiveCodeSnippet();
-            const lang = event.document.languageId;
-
-            if (code.length > 5) {
+            const lang = detectLanguage(event.document);
+            if (lang && code.length > 5) {
                 const result = await checkCodeModernity(code, lang);
                 
                 if (result?.found) {
                     vscode.window.showInformationMessage(
-                        `💡 ${result.message}`,
+                        `💡 ${result.suggestion}`,
                         "Learn Why", "Dismiss"
                     ).then(selection => {
                         if (selection === "Learn Why") {

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export interface AnalysisResponse {
     found: boolean;
-    message?: string;
+    matches?: string;
     suggestion?: string;
     link?: string;
 }
@@ -10,12 +10,12 @@ export interface AnalysisResponse {
 export async function checkCodeModernity(code: string, language: string): Promise<AnalysisResponse | null> {
     try {
         const response = await axios.post('http://localhost:8000/analyze', {
-            content: code,
+            code: code,
             language: language
         });
         return response.data;
     } catch (error) {
-        console.error("Situ API Error:", error);
+        console.error("Nexus API Error:", error);
         return null;
     }
 }

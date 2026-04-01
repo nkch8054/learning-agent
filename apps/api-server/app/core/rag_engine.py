@@ -1,7 +1,7 @@
+import os
 from app.db.vector_store import get_vector_db
-from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
+from langchain_classic.retrievers.contextual_compression import ContextualCompressionRetriever
 from langchain_cohere import CohereRerank
-from langchain_openai import ChatOpenAI
 
 def match_code_to_docs(user_query: str, library_filter: str = None):
     db = get_vector_db()
@@ -18,8 +18,8 @@ def match_code_to_docs(user_query: str, library_filter: str = None):
         base_compressor=compressor, 
         base_retriever=db.as_retriever(search_kwargs=search_kwargs)
     )
-    
+
     # 3. Retrieve
-    relevant_docs = compression_retriever.get_relevant_documents(user_query)
+    relevant_docs = compression_retriever.invoke(user_query)
     
     return relevant_docs
