@@ -1,8 +1,13 @@
 {
-  "name": "learning-agent",
-  "displayName": "Learning-Agent",
+  "name": "nexus-learning",
+  "displayName": "Nexus-Learning",
   "description": "An AI-powered tutor that lives inside your professional tools to teach you new skills in 15-second 'nudges' while you work, ensuring your expertise never goes obsolete.",
-  "version": "0.0.1",
+  "publisher": "NavinKumar",
+  "version": "1.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nkch8054/learning-agent"
+  },
   "engines": {
     "vscode": "^1.110.0"
   },
@@ -10,14 +15,27 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:javascript"
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:go",
+    "onLanguage:java",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "learning-agent.helloWorld",
-        "title": "Hello World"
+        "command": "nexusLearning.showLesson",
+        "title": "Open Nexus Lesson"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "nexusLearning.showLesson",
+        "key": "alt+i",
+        "when": "editorTextFocus && !editorReadonly"
       }
     ]
   },

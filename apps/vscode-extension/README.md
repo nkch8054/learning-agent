@@ -1,16 +1,22 @@
-# learning-agent README
+## Nexus Helper 🚀
 
-This is the README for your extension "learning-agent". After writing up a brief description, we recommend including the following sections.
+A VS Code extension to help developers with AI-powered code assistance.
+
+<!-- For example if there is an image subfolder under your extension project workspace:
+
+\!\[feature X\]\(images/feature-x.png\) -->
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- 🔍 Code search using RAG
+- ⚡ Fast suggestions
+- 🤖 AI-powered responses
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open Command Palette (Ctrl+Shift+P)
+2. Search: `Nexus Helper`
+3. Start using the extension
 
 ## Requirements
 
@@ -46,8 +52,6 @@ Fixed issue #.
 ### 1.1.0
 
 Added features X, Y, and Z.
-
----
 
 ## Following extension guidelines
 
