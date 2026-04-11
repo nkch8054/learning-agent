@@ -1,9 +1,10 @@
 {
   "name": "nexus-learning",
   "displayName": "Nexus-Learning",
+  "icon": "logo.png",
   "description": "An AI-powered tutor that lives inside your professional tools to teach you new skills in 15-second 'nudges' while you work, ensuring your expertise never goes obsolete.",
   "publisher": "NavinKumar",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/nkch8054/learning-agent"
@@ -29,15 +30,21 @@
       {
         "command": "nexusLearning.showLesson",
         "title": "Open Nexus Lesson"
+      },
+      {
+        "command": "nexus.analyzeCode",
+        "title": "Nexus: Analyze Code"
       }
     ],
-    "keybindings": [
-      {
-        "command": "nexusLearning.showLesson",
-        "key": "alt+i",
-        "when": "editorTextFocus && !editorReadonly"
-      }
-    ]
+    "menus": {
+      "editor/context": [
+        {
+          "command": "nexus.analyzeCode",
+          "group": "navigation",
+          "when": "editorHasSelection"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

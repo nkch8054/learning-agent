@@ -3,7 +3,7 @@ import { AnalysisResponse } from '../model/analysis-response';
 
 export async function checkCodeModernity(code: string, language: string): Promise<AnalysisResponse | null> {
     try {
-        const response = await axios.post('http://nexus-app-8.azurewebsites.net/analyze', {
+        const response = await axios.post('http://localhost:8000/analyze', {
             code: code,
             language: language
         });

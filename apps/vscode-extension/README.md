@@ -1,75 +1,86 @@
-## Nexus Helper 🚀
+# 🚀 Nexus: Your Just-in-Time Learning Sidekick
 
-A VS Code extension to help developers with AI-powered code assistance.
+**Nexus** is an AI-powered Learning Agent that audits your code in real-time. It identifies "Learning Moments"—outdated patterns, performance bottlenecks, or security risks—and provides interactive 15-second lessons exactly where you are working.
 
-<!-- For example if there is an image subfolder under your extension project workspace:
+Instead of generic linting, Nexus uses deep context to teach you the **"Why"** behind modern code standards.
 
-\!\[feature X\]\(images/feature-x.png\) -->
+---
 
-## Features
+## ✨ Key Features
 
-- 🔍 Code search using RAG
-- ⚡ Fast suggestions
-- 🤖 AI-powered responses
+### 🔍 Smart Background Auditing
+As you type, Nexus performs a background audit of your active code block. Within 3 seconds, it highlights outdated patterns with a **subtle blue squiggle**, ensuring you stay focused while the AI "thinks."
 
-## Usage
+### 🤖 Context-Aware "Matches"
+When you open a Nexus lesson, the exact code you wrote is displayed at the top. This provides immediate context, showing you exactly which part of your project the advice applies to.
 
-1. Open Command Palette (Ctrl+Shift+P)
-2. Search: `Nexus Helper`
-3. Start using the extension
+### 📝 Detailed Issue Breakdowns
+No more vague "this is bad" messages. Nexus provides a structured list of specific technical issues, each with its own bulleted explanation of the risks and benefits.
 
-## Requirements
+### 🎯 Interactive Practice Tasks
+Every lesson concludes with a specific "Practice Task"—a hands-on mission to refactor your code and reinforce the new concept.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### 📖 Multi-Resource Learning
+Nexus provides multiple curated links for every issue—ranging from 15-second visual demos to official documentation (MDN, React.dev, etc.)—all viewable in the built-in VS Code browser.
 
-## Extension Settings
+---
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## 🚀 How to Use
 
-For example:
+### 1. The Automatic Audit (Background)
+Simply write your code. 3 seconds after you stop typing, Nexus will **underline** problematic patterns (like `useEffect` fetch or `time.time()` calls) with a blue information squiggle.
 
-This extension contributes the following settings:
+### 2. The Manual Audit (Right-Click)
+Want a second opinion on a specific block of code? 
+- **Highlight** the code.
+- **Right-click** -> **"Nexus: Analyze Code"**.
+- A loading progress bar will appear while the AI audits your code.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+---
 
-## Known Issues
+## 🛠 Supported Environments
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Nexus is a polyglot agent optimized for:
+- **Frontend:** React (Suspense, use() hook), Angular (Signals, RxJS)
+- **Backend:** Node.js (Async patterns), Go (Error wrapping, Goroutines), Java (Streams)
+- **Data/Logic:** Python (Performance, Monotonic timers)
 
-## Release Notes
+---
 
-Users appreciate release notes as you update your extension.
+## 🔒 Privacy & Security
 
-### 1.0.0
+**Nexus uses Local Sanitization.** 
+Before any code is sent to the cloud for analysis, the extension local-processes your snippet to:
+- Mask variable names (e.g., `const userData` becomes `const identifier`).
+- Strip string literals and secrets.
+- Remove comments.
+Only the **structural pattern** of your code is analyzed, keeping your proprietary logic safe.
 
-Initial release of ...
+---
 
-### 1.0.1
+## ⚙️ Extension Settings
 
-Fixed issue #.
+*   `nexus.apiKey`: Your Cohere API Key for analysis.
+*   `nexus.enableBackgroundAudit`: Toggle automatic blue squiggles.
+*   `nexus.debounceTime`: Milliseconds to wait before starting an audit (Default: `800ms`).
+
+---
+
+## 📦 Requirements
+
+*   A **Cohere API Key** (Get one for free at [cohere.com](https://cohere.com)).
+*   VS Code version 1.75.0+.
+
+---
+
+## 📝 Release Notes
 
 ### 1.1.0
+- **New UI:** Shifted to Diagnostic Squiggles for better visibility.
+- **Improved Context:** "Matches" now display at the top of the learning panel.
+- **Multi-Reference:** Support for multiple documentation links per lesson.
+- **Copilot Auditor:** Automatic auditing of multi-line blocks inserted by GitHub Copilot.
 
-Added features X, Y, and Z.
+---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Happy Coding with Nexus!**
