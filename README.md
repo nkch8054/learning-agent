@@ -130,3 +130,63 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 *Nexus: Stay relevant. One keystroke at a time.*
+
+---
+
+## 📦 Steps to Deploy VS Code Extension
+
+### 1. Install VSCE
+
+```bash
+npm install -g vsce
+```
+
+---
+
+### 3. Login
+
+```bash
+vsce login <publisher-name>
+```
+
+---
+
+### 4. Update `package.json`
+
+```json
+{
+  "name": "nexus-helper",
+  "publisher": "<publisher-name>",
+  "version": "0.0.1"
+}
+```
+
+---
+
+### 5. Package Extension
+
+```bash
+vsce package
+```
+
+---
+
+### 6. Publish Extension
+
+```bash
+vsce publish
+``` 
+
+---
+
+### 7. Update Version (for next releases)
+
+```bash
+vsce publish patch
+```
+
+---
+
+## ✅ Done
+
+Your extension will be available on the VS Code Marketplace within a few minutes.

@@ -11,7 +11,8 @@ DOCS_SOURCES = {
     # "typescript": "https://www.typescriptlang.org/docs/",
     # "golang": "https://pkg.go.dev/std",
     # "java_spring": "https://docs.spring.io/spring-boot/index.html"
-    "angular": "https://angular.dev/"
+    # "angular": "https://angular.dev/"
+    # "javascript" : "https://developer.mozilla.org/en-US/"
 }
 
 def clean_html(html_content):
