@@ -65,17 +65,17 @@ export class NexusWebviewPanel {
 
     private _getHtmlContent(webview: vscode.Webview, extensionUri: vscode.Uri, data: AnalysisResponse): string {
         const htmlUri = webview.asWebviewUri(
-            vscode.Uri.joinPath(extensionUri, 'src/media', 'index.html')
+            vscode.Uri.joinPath(extensionUri, 'media', 'index.html')
         );
 
         const htmlContent = fs.readFileSync(htmlUri.fsPath, 'utf8');
 
         const cssUri = webview.asWebviewUri(
-            vscode.Uri.joinPath(extensionUri, 'src/media', 'styles.css')
+            vscode.Uri.joinPath(extensionUri, 'media', 'styles.css')
         );
 
         const scriptUri = webview.asWebviewUri(
-            vscode.Uri.joinPath(extensionUri, 'src/media', 'script.js')
+            vscode.Uri.joinPath(extensionUri, 'media', 'script.js')
         );
 
         return `
