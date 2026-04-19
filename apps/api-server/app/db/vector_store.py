@@ -16,7 +16,7 @@ def get_vector_db():
         embedding_function=embeddings
     )
 
-def save_to_db(chunks, batch_size=5000):
+def save_to_db(chunks, batch_size=1000):
     db = get_vector_db()
     for i in range(0, len(chunks), batch_size):
         batch = chunks[i:i+batch_size]
